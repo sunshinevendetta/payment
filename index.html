@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bignumber.js/bignumber.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Payment App Benjamin Hill</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -10,7 +12,7 @@
     <div id="app" class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-6 col-lg-4">
-                <h1 class="text-center mb-4">Payment App</h1>
+                <h1 class="text-center mb-4">Payment App Benjamin Hill</h1>
                 <div class="d-flex justify-content-center mb-4">
                     <img src="https://oiindustries.live/images/logow.png" alt="Connect Wallet" class="img-fluid">
                 </div>
@@ -33,6 +35,35 @@
                         <p>1) Haz clic en "Connect Wallet" para conectarte.<br><br>
                         2) Asegúrate de tener suficiente ETH para el depósito.<br><br>
                         3) Usa el conversor ETH a WEI para obtener el número de WEI correcto para el depósito. <br><br>Ejemplo: 1 ETH = 1,000,000,000,000,000,000 WEI.<br><br>Si fuera 0.5 ETH entonces es 500000000000000000<br><br>1 wei es la unidad mínima de Ethereum el equivalente a un centavo en Fiat, ya que Ethereum tiene 18 decimales<br><br>
+                        <script>
+                            function convertEthToWei() {
+                              // conversion code goes here
+                            }
+                          
+                            function convertWeiToEth() {
+                              // conversion code goes here
+                            }
+                          
+                            function copyWei() {
+                              var weiInput = document.getElementById("wei-input");
+                              weiInput.select();
+                              document.execCommand("copy");
+                            }
+                          </script>
+                          
+                          <form>
+                            <div style="display: flex; align-items: center;">
+                              <label for="eth-input" style="width: 50px;">ETH:</label>
+                              <input type="text" id="eth-input" style="width: 200px;" oninput="convertEthToWei()">
+                            </div>
+                            <div style="display: flex; align-items: center;">
+                              <label for="wei-input" style="width: 50px;">Wei:</label>
+                              <input type="text" id="wei-input" style="width: 200px;" oninput="convertWeiToEth()">
+                              <button type="button" onclick="copyWei()">Copy</button>
+                            </div>
+                          </form>
+                          <br>
+                          
                         4) Haz clic en "Deposit" y paga la tarifa de gas. La transacción será confirmada y visible en la cadena al terminar.<br><br><br>
                             </p>----------------------------------------------
                        <h1>Instrucciones Retiro:</h1><br>
@@ -46,6 +77,18 @@
             </div>
         </div>
     </div>
+    <script>
+        function convertEthToWei() {
+          // Get the ETH value from the input field
+          const ethValue = document.getElementById("eth-input").value;
+      
+          // Convert ETH to Wei using the EthereumJS-Units library
+          const weiValue = ethers.utils.parseEther(ethValue);
+      
+          // Update the Wei input field with the converted value
+          document.getElementById("wei-input").value = weiValue.toString();
+        }
+      </script>
     <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"></script>
     <script src="https://cdn.ethers.io/lib/web3-bridge-5.2.min.js"></script>
     <script src="app.js" type="module"></script>
