@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Payment App Benjamin Hill</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app" class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-4">
+                <h1 class="text-center mb-4">Payment App</h1>
+                <div class="d-flex justify-content-center mb-4">
+                    <img src="https://static.wixstatic.com/media/4de16f_83736b0cfb7a4817b1be8dd4e26304e3~mv2.png/v1/fill/w_548,h_548,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/logo2022wtswtc.png" alt="Connect Wallet" class="img-fluid">
+                </div>
+                <button id="connect-btn" class="btn btn-primary btn-block">
+                    Connect Wallet</button>
+                <div class="form-group mt-4">
+                    <label for="deposit-amount">Deposit Amount:</label>
+                    <div class="input-group">
+                        <input type="text" id="deposit-amount" class="form-control" />
+                        <div class="input-group-append">
+                            <button id="deposit-btn" class="btn btn-primary">Deposit</button>
+                        </div>
+                    </div>
+                    <div id="depositResponse" class="mt-2"></div>
+                </div>
+                <div class="form-group">
+                    <button id="withdraw-btn" class="btn btn-primary btn-block">Withdraw</button>
+                    <div id="withdrawResponse" class="mt-2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"></script>
+    <script src="https://cdn.ethers.io/lib/web3-bridge-5.2.min.js"></script>
+    <script src="app.js" type="module"></script>
+</body>
+</html>
